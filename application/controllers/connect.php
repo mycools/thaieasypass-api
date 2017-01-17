@@ -134,14 +134,14 @@ class Connect extends CI_Controller {
 		$params = array(
 			"server_time"=>time(),
 			"validminutes"=>5,
-			"idcard"=>"1969900073487",
+			"idcard"=>"",
 		);
 		$params['p'] = md5($params['p']).base64_encode($params['p']);
 		$str = http_build_query($params);
 		$params['hash_value'] = md5($str);
 		$str = http_build_query($params);
 		$wmsAuthSign = md5($str).base64_encode($str);
-		$link = "http://digitaltv.mycools.in.th/easypass?wmsAuthSign=".$wmsAuthSign;
+		$link = site_url("connect?wmsAuthSign=".$wmsAuthSign);
 		echo "<a href='".$link."' target='_blank'>".$link."</a>";
 	}
 }
