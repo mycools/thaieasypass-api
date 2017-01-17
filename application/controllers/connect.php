@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 error_reporting(15);
-class Easypass extends CI_Controller {
+class Connect extends CI_Controller {
 	public function index()
 	{
 		//header("content-type:application/json;charset:utf-8");
