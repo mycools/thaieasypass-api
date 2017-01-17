@@ -113,35 +113,4 @@ class Connect extends CI_Controller {
 		$this->source_easypass->forgetpass($params);
 		
 	}
-	function wmsAuthSign()
-	{
-		$params = array(
-			"server_time"=>time(),
-			"validminutes"=>5,
-			"u"=>"mycools",
-			"p"=>"ja*05032530",
-		);
-		$params['p'] = md5($params['p']).base64_encode($params['p']);
-		$str = http_build_query($params);
-		$params['hash_value'] = md5($str);
-		$str = http_build_query($params);
-		$wmsAuthSign = md5($str).base64_encode($str);
-		$link = site_url("connect?wmsAuthSign=".$wmsAuthSign);
-		echo "<a href='".$link."' target='_blank'>".$link."</a>";
-	}
-	function wmsAuthSign2()
-	{
-		$params = array(
-			"server_time"=>time(),
-			"validminutes"=>5,
-			"idcard"=>"",
-		);
-		$params['p'] = md5($params['p']).base64_encode($params['p']);
-		$str = http_build_query($params);
-		$params['hash_value'] = md5($str);
-		$str = http_build_query($params);
-		$wmsAuthSign = md5($str).base64_encode($str);
-		$link = site_url("connect?wmsAuthSign=".$wmsAuthSign);
-		echo "<a href='".$link."' target='_blank'>".$link."</a>";
-	}
 }
