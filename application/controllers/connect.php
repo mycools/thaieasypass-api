@@ -126,7 +126,7 @@ class Connect extends CI_Controller {
 		$params['hash_value'] = md5($str);
 		$str = http_build_query($params);
 		$wmsAuthSign = md5($str).base64_encode($str);
-		$link = "http://digitaltv.mycools.in.th/easypass?wmsAuthSign=".$wmsAuthSign;
+		$link = site_url("connect?wmsAuthSign=".$wmsAuthSign);
 		echo "<a href='".$link."' target='_blank'>".$link."</a>";
 	}
 	function wmsAuthSign2()
